@@ -1,0 +1,21 @@
+<div class="car-list">
+    <div class="top-header">
+      <img src="au.jpg" alt="Logo" class="company-logo" />
+      <h1>Nasza firma</h1>
+      <div class="top-navigation">
+        <button routerLink="/about">O nas</button>
+        <button routerLink="/login">Zaloguj się</button>
+      </div>
+    </div>
+    <h2>List of Cars</h2>
+    <ul>
+      <li *ngFor="let car of cars">
+        <img [src]="car.image" alt="{{ car.model }}" />
+        <div class="car-details">
+          <h3>{{ car.model }}</h3>
+          <p>{{ car.description }}</p>
+          <button (click)="rentCar(car)">Wypożycz samochód</button>
+        </div>
+      </li>
+    </ul>
+  </div>
