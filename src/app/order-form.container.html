@@ -1,0 +1,31 @@
+<div class="order-form-container" *ngIf="isLoggedIn">
+    <h2>Zamówienie samochodu</h2>
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="pickupDate">Data odbioru:</label>
+        <input type="date" id="pickupDate" name="pickupDate" formControlName="pickupDate" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="pickupTime">Czas odbioru:</label>
+        <input type="time" id="pickupTime" name="pickupTime" formControlName="pickupTime" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="fullName">Imię i Nazwisko:</label>
+        <input type="text" id="fullName" name="fullName" formControlName="fullName" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="pickupLocation">Miejsce odbioru:</label>
+        <input type="text" id="pickupLocation" name="pickupLocation" formControlName="pickupLocation" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="returnLocation">Miejsce zwrotu:</label>
+        <input type="text" id="returnLocation" name="returnLocation" formControlName="returnLocation" required>
+      </div>
+  
+      <button type="submit">Potwierdź i Przejdź do Płatności</button>
+    </form>
+  </div>

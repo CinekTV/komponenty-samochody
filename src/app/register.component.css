@@ -1,9 +1,5 @@
-body {
-    background-color: linen;
-  }
-  
-.login-container {
-    margin: 20px; 
+.registration-container {
+    margin: 20px;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -12,7 +8,7 @@ body {
     margin: auto;
     margin-top: 50px;
   }
-  
+   
   h1 {
     color: #333;
     text-align: center;
@@ -23,6 +19,13 @@ body {
     flex-direction: column;
   }
   
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column; /* Ustawienie orientacji kolumny */
+    align-items: flex-start; /* Wyrównanie do lewej krawędzi */
+  }
+  
   label {
     margin-bottom: 5px;
     color: #333;
@@ -30,9 +33,10 @@ body {
   
   input {
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
   }
   
   button {
@@ -46,4 +50,9 @@ body {
   
   button:hover {
     background-color: darkorange;
+  }
+  
+  .error-message {
+    color: #ff0000;
+    margin-top: 5px;
   }

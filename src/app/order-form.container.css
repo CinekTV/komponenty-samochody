@@ -1,15 +1,9 @@
-.registration-container {
-    margin: 20px;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    width: 300px;
+.order-form-container {
+    max-width: 500px;
     margin: auto;
-    margin-top: 50px;
   }
-   
-  h1 {
+  
+  h2 {
     color: #333;
     text-align: center;
   }
@@ -21,9 +15,6 @@
   
   .form-group {
     margin-bottom: 15px;
-    display: flex;
-    flex-direction: column; /* Ustawienie orientacji kolumny */
-    align-items: flex-start; /* Wyrównanie do lewej krawędzi */
   }
   
   label {
@@ -50,9 +41,4 @@
   
   button:hover {
     background-color: darkorange;
-  }
-  
-  .error-message {
-    color: #ff0000;
-    margin-top: 5px;
   }
