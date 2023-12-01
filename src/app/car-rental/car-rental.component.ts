@@ -59,3 +59,5 @@ export class CarRentalComponent implements OnInit {
     this.sortRentals();
   }
 }
+
+export class CarRentalModule {}
