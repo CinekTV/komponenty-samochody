@@ -1,6 +1,6 @@
-<div class="order-form-container" *ngIf="isLoggedIn">
+<div>
     <h2>Zamówienie samochodu</h2>
-    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+    <form>
       <div class="form-group">
         <label for="pickupDate">Data odbioru:</label>
         <input type="date" id="pickupDate" name="pickupDate" formControlName="pickupDate" required>

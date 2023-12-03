@@ -2,20 +2,22 @@
   <div class="homepage-container">
     <header>
       <h1>Wypożyczalnia Samochodów</h1>
+      <img src="au.jpg" alt="Logo" class="company-logo" />
+     
       <nav>
-        <a routerLink="/car-list">Lista Samochodów</a>
-        <a routerLink="/login">Zaloguj się/Dołącz</a>
-        <a routerLink="/profile">Historia wypożyczeń</a>
+        <a (click)="navigateToHome()">Strona główna</a>
+        <a (click)="navigateToCarList()">Lista Samochodów</a>
+        <a (click)="navigateToLogin()">Zaloguj/Zarejestruj</a>
       </nav>
     </header>
   
     <main>
-      <router-outlet>Działamy na Polskim rynku od 15 lat i oferujemy różnorodne auta w konkurencyjnych cenach. Zobacz nasze nowości w zakładce "Lista samochodów"</router-outlet>
+      <router-outlet></router-outlet>
     </main>
   
     <footer>
       <p>&copy; 2023 Wypożyczalnia Samochodów</p>
-      <nav> <a routerLink="/contact">Kontakt</a> </nav>
+      <nav> <a (click)="navigateToContact()">Kontakt</a> </nav>
     </footer>
   </div>
 </main>
