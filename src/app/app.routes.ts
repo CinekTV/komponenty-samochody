@@ -6,6 +6,7 @@ import { CarRentalComponent } from './car-rental/car-rental.component';
 import { CarListComponent } from './car-list/car-list.component';
 import {RegisterComponent} from './register/register.component';
 import { ContactComponent } from './contact/contact.component';
+import { RentalListComponent } from './rental-list/rental-list.component';
 
 export const routes: Routes = [
     {path:'app',component:AppComponent},
@@ -14,7 +15,8 @@ export const routes: Routes = [
     {path: 'car', component: CarComponent},
     {path: 'car-rental', component: CarRentalComponent},
     {path: 'car-list', component: CarListComponent},
-    {path: 'contact', component:ContactComponent}
+    {path: 'contact', component:ContactComponent},
+    {path: 'rental-list', component:RentalListComponent}
 ];
 
 

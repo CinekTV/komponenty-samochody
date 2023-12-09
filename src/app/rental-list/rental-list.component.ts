@@ -1,9 +1,5 @@
-// rental.component.ts
+// car-rental.component.ts
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 
 interface Rental {
   userId: number;
@@ -14,11 +10,11 @@ interface Rental {
 }
 
 @Component({
-  selector: 'app-rental',
-  templateUrl: './car-rental.component.html',
-  styleUrls: ['./car-rental.component.css']
+  selector: 'app-rental-list',
+  templateUrl: './rental-list.component.html',
+  styleUrls: ['./rental-list.component.css']
 })
-export class CarRentalComponent implements OnInit {
+export class RentalListComponent implements OnInit {
   rentals: Rental[] = [];
   sortedRentals: Rental[] = [];
   sortBy: keyof Rental = 'startDate'; // Domyślne sortowanie
@@ -64,12 +60,4 @@ export class CarRentalComponent implements OnInit {
   }
 }
 
-export class RentalModule {
-
-    
-  constructor(private router: Router) {}
-    navigateToHome() {
-        this.router.navigate(['/contact']);
-      }
-      
-}
+export class CarRentalModule {}
