@@ -1,11 +1,18 @@
 <div class="car-list">
-    <div class="top-header">
-      <img src="assets/img/au.png" alt="Logo" class="company-logo" />
+  <div class="top-header">
+    <h2>Samochody do wynajęcia:</h2>
     <ul>
+      <!-- Użyj dyrektywy *ngFor, aby iterować po każdym samochodzie w liście -->
+      <li *ngFor="let car of cars" class="car-item">
         <div class="car-details">
-          <h3>model</h3>
-          <p>Bardzo ladny opis</p>
+          <h3>{{ car.brand}} {{car.model}}</h3>
+          <img src={{car.image}} class="car-photo"/>
+          <p>Numer rejestracyjny: {{ car.regPlate }}</p>
+          <p>Rok produkcji: {{ car.productionYear }}</p>
           <button (click)="navigateToRent()">Wypożycz Samochód</button>
+          <br><br><br>
         </div>
+      </li>
     </ul>
   </div>
+</div>

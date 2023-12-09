@@ -7,6 +7,7 @@ import { CarListComponent } from './car-list/car-list.component';
 import {RegisterComponent} from './register/register.component';
 import { ContactComponent } from './contact/contact.component';
 import { RentalListComponent } from './rental-list/rental-list.component';
+import { CarServiceService } from './car-service.service';
 
 export const routes: Routes = [
     {path:'app',component:AppComponent},

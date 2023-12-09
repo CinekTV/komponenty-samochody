@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Car } from '../../types/car';
 
 @Component({
   selector: 'app-car',
@@ -9,20 +10,17 @@ import { CommonModule } from '@angular/common';
   styleUrl: './car.component.css'
 })
 export class CarComponent {
-  id: number;
-  brand: string;
-  model: string;
-  regPlate: string;
-  productionYear: number;
-  status: number;
+  car:Car
 
   constructor(){
-    this.id = 1;
-    this.brand = 'Skoda';
-    this.model = 'Octavia';
-    this.regPlate = 'BI99999';
-    this.productionYear = 2009;
-    this.status = 0;
+    this.car = {
+    id: 1,
+    brand: 'Skoda',
+    model: 'Octavia',
+    regPlate: 'BI99999',
+    productionYear: 2009,
+    status: 0,
+    };
   }
 
 }
