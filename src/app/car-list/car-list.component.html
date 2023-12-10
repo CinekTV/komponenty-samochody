@@ -9,7 +9,8 @@
           <img src={{car.image}} class="car-photo"/>
           <p>Numer rejestracyjny: {{ car.regPlate }}</p>
           <p>Rok produkcji: {{ car.productionYear }}</p>
-          <button (click)="navigateToRent()">Wypożycz Samochód</button>
+          <!-- <button (click)="navigateToRent()">Wypożycz Samochód</button> -->
+          <a href="{{'car-rental/' + car.id}}">Wynajmij</a>
           <br><br><br>
         </div>
       </li>

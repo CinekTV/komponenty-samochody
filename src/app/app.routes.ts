@@ -15,6 +15,7 @@ export const routes: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'car', component: CarComponent},
     {path: 'car-rental', component: CarRentalComponent},
+    {path: 'car-rental/:id', component: CarRentalComponent},
     {path: 'car-list', component: CarListComponent},
     {path: 'contact', component:ContactComponent},
     {path: 'rental-list', component:RentalListComponent}
