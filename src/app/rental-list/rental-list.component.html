@@ -1,0 +1,35 @@
+<div>
+    <h2>Wypożyczenie samochodu</h2>
+  
+    <div>
+      <label>Sortuj według:</label>
+      <select>
+        <option value="userId">ID Usera</option>
+        <option value="carId">ID Samochodu</option>
+        <option value="startDate">Data Początkowa</option>
+        <option value="endDate">Data Końcowa</option>
+        <option value="kmCount">Ilość KM</option>
+      </select>
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th (click)="setSortBy('userId')">ID Usera</th>
+          <th (click)="setSortBy('carId')">ID Samochodu</th>
+          <th (click)="setSortBy('startDate')">Data Początkowa</th>
+          <th (click)="setSortBy('endDate')">Data Końcowa</th>
+          <th (click)="setSortBy('kmCount')">Ilość KM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rental of sortedRentals">
+          <td>{{ rental.userId }}</td>
+          <td>{{ rental.carId }}</td>
+          <td>{{ rental.startDate }}</td>
+          <td>{{ rental.endDate  }}</td>
+          <td>{{ rental.kmCount }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

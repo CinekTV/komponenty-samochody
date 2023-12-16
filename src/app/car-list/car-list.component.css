@@ -53,5 +53,31 @@ footer {
 }
 
 .company-logo{
-  max-height: 150px;
+  max-height: 250px;
+}
+
+.car-photo{
+  max-width: 350px;
+}
+
+.car-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.top-header {
+  width: 80%; /* Możesz dostosować szerokość według potrzeb */
+}
+
+
+.car-list ul {
+  list-style-type: none; /* Wyłącza domyślne kropki */
+  padding: 0; /* Usuwa domyślne wcięcie lewe */
+}
+
+.car-list li {
+  margin-bottom: 10px; /* Dodaje odstęp między elementami listy */
 }
