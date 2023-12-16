@@ -28,8 +28,8 @@ export class CarListComponent implements OnInit{
       this.cars=this.carService.getCars();
     }
   
-  navigateToRent() {
-    this.router.navigate(['/car-rental']);
+  navigateToRent(carId: number) {
+    this.router.navigate(['/car-rental', carId]);
   }
   navigateToHome() {
     this.router.navigate(['/contact']);

@@ -8,8 +8,11 @@ import {RegisterComponent} from './register/register.component';
 import { ContactComponent } from './contact/contact.component';
 import { RentalListComponent } from './rental-list/rental-list.component';
 import { CarServiceService } from './car-service.service';
+// import { PageNotFoundComponentComponent } from './page-not-found-component/page-not-found-component.component';
 
 export const routes: Routes = [
+    // {path: '**', component: PageNotFoundComponentComponent},
+    {path: '', redirectTo: '/contact', pathMatch: 'full'},
     {path:'app',component:AppComponent},
     {path:'login',component:LoginComponent},
     {path: 'register', component: RegisterComponent},
