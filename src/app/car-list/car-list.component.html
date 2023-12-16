@@ -10,7 +10,7 @@
           <p>Numer rejestracyjny: {{ car.regPlate }}</p>
           <p>Rok produkcji: {{ car.productionYear }}</p>
           <!-- <button (click)="navigateToRent()">Wypożycz Samochód</button> -->
-          <a href="{{'car-rental/' + car.id}}"><button>Wynajmij</button></a>
+          <a routerLink="/car-rental" routerLinkActive="active" ariaCurrentWhenActive="page"><button>Wynajmij</button></a>
           <br><br><br>
         </div>
       </li>
