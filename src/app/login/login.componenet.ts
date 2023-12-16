@@ -1,27 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
+export class LoginComponent implements OnInit {
+  title = 'Logowanie';
+  //loginForm: FormGroup;
+  public loginForm: FormGroup = new FormGroup({});
+  username: string = ''; 
+  password: string = '';
 
-export class LoginComponent{
-  title = 'logowanie';
+  constructor(private formBuilder: FormBuilder, private router: Router) {
+  }
 
-  constructor(private router: Router) {}
+  ngOnInit() {
+    this.initForm();
+  }
 
-navigateToRegister() {
-  this.router.navigate(['/register']);
+  initForm() {
+    this.loginForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+
+  navigateToRegister() {
+    this.router.navigate(['/register']);
+  }
+
+  login() {
+    if (this.loginForm.valid) {
+      // logowanie
+      console.log('Zalogowano!');
+    } else {
+      
+      console.log('Błąd logowania.');
+    }
+  }
 }
-
-navigateToHome() {
-  this.router.navigate(['/contact']);
-}
-
-}
-
