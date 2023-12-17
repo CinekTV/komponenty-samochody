@@ -41,7 +41,9 @@ export class LoginComponent implements OnInit {
 
       if (user) {
         console.log('Zalogowano pomyślnie');
-        this.loginError = null; 
+       // this.loginError = null; 
+        this.loginError ="Zalogowano pomyślnie";
+       // this.router.navigateByUrl('/zalogowano');
       } else {
         console.log('Błąd logowania: Nieprawidłowe dane');
         this.loginError = 'Nieprawidłowe dane logowania';
