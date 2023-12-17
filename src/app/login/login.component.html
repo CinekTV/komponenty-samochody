@@ -1,11 +1,11 @@
 <div class="login-container">
     <h1>Zaloguj się</h1>
-    <form>
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <label for="username">Nazwa użytkownika:</label>
-      <input type="text" id="username" name="username" required>
+      <input type="text" id="username" name="username" formControlName="login">
    
       <label for="password">Hasło:</label>
-      <input type="password" id="password" name="password" required>
+      <input type="password" id="password" name="password" formControlName="password">
   
       <button type="submit">Zaloguj się</button> <br/>
       <button (click)="navigateToRegister()">Nie masz konta? Zarejestruj się</button>

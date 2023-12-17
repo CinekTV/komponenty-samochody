@@ -25,14 +25,30 @@ export class CarListComponent implements OnInit{
     
 
     ngOnInit(): void {
-      this.cars=this.carService.getCars();
+      this.carService.getCars().subscribe(
+        (cars: Car[]) => {
+          this.cars = cars;
+        },
+        (error: any) => {
+          console.error('Error fetching cars', error);
+        }
+      );
     }
+
+getMaxId(): number {
+    const maxId = Math.max(...this.cars.map((car) => car.id), 0);
+    return maxId + 1;
+  }
   
   navigateToRent() {
     this.router.navigate(['/car-rental']);
   }
   navigateToHome() {
     this.router.navigate(['/contact']);
+  }
+  navigateToAddCar()
+  {
+    this.router.navigate(['/add-car'])
   }
 
 }

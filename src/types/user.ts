@@ -48,7 +48,7 @@ public get IsWorker(): boolean {
     return this.isWorker;
 }
 
-constructor (id: number, firstName: string, lastName: string, password: string, birthDate: Date, email: string, address: string, phone: number, status: int, isWorker: boolean)
+constructor (id: number, firstName: string, lastName: string, password: string, birthDate: Date, email: string, address: string, phone: number, status: number, isWorker: boolean)
 {
     this.id = id;
     this.firstName = firstName;
