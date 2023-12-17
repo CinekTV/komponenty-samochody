@@ -9,7 +9,7 @@ import { Car } from '../../types/car';
 @Component({
   selector: 'app-car-list',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet],
+  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet,],
   providers: [CarServiceService],
   templateUrl: './car-list.component.html',
   styleUrl: './car-list.component.css'

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User, Client, Worker } from '../types/user';  // Importujemy wszystkie klasy z pliku user.ts
+import { User, Client, Worker } from '../types/user'; 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
