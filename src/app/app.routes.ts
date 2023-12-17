@@ -1,5 +1,5 @@
 import { Routes, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { LoginComponent } from './login/login.componenet'; 
+import { LoginComponent } from './login/login.component'; 
 import { AppComponent } from './app.component';
 import { CarComponent } from './car/car.component'; 
 import { CarRentalComponent } from './car-rental/car-rental.component';
