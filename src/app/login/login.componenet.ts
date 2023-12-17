@@ -1,45 +1,64 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, ValidationErrors, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormBuilder, Validators } from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { UserService } from '../user.service';
 
 @Component({
-  standalone: true,
   selector: 'app-login',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
-  imports:[
-    ReactiveFormsModule
-  ]
+  styleUrls: ['./login.component.css']
 })
+export class LoginComponent implements OnInit {
+  public loginForm: FormGroup = new FormGroup({});
+  public loginError: string | null = null;
 
-export class LoginComponent{
-  title = 'logowanie';
-  loginForm = this.fb.group({
-    login: ['',Validators.required],
-    password: ['', Validators.required]
-  })
-  constructor(private router: Router, private fb: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) {}
 
-navigateToRegister() {
-  this.router.navigate(['/register']);
-}
+  ngOnInit() {
+    this.initForm();
+  }
+  navigateToRegister() {
+    this.router.navigate(['/register']);
+  }
+  navigateToHome(){
+    this.router.navigate(['/contact']);
+  }
 
-navigateToHome() {
-  this.router.navigate(['/contact']);
-}
+  initForm() {
+    this.loginForm = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
 
-get login() {
-  return this.loginForm.controls['login'];
-}
-get password() {
-  return this.loginForm.controls['password'];
-}
-onSubmit(): void {
-  console.log('submitted form', this.loginForm.value);
-}
+  login() {
+    if (this.loginForm.valid) {
+      const formData = this.loginForm.value;
+      const user = this.userService.getUsers().find(u => u.getEmail() === formData.email && u.getPassword() === formData.password);
 
-}
+      if (user) {
+        console.log('Zalogowano pomyślnie');
+        this.loginError ="Zalogowano pomyślnie";
+      } else {
+        console.log('Błąd logowania: Nieprawidłowe dane');
+        this.loginError = 'Nieprawidłowe dane logowania';
+      }
+    } else {
+      console.log('Błąd');
+      this.getFormValidationErrors();
+      this.loginError = 'Formularz zawiera błędy';
+    }
+  }
 
+  getFormValidationErrors() {
+    Object.keys(this.loginForm.controls).forEach((key) => {
+      const controlErrors: ValidationErrors = this.loginForm.get(key)!.errors!;
+      Object.keys(controlErrors || {}).forEach(keyError => {
+        console.log(`Key control: ${key}, keyError: ${keyError}, errValue: ${controlErrors[keyError]}`);
+      });
+    });
+  }
+}

@@ -1,65 +1,92 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, ValidationErrors, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { User } from '../../types/user';
 import { UserService } from '../user.service';
-import { Client } from '../../types/user';
 
 @Component({
   selector: 'app-register',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css',
+  styleUrls: ['./register.component.css']
 })
+export class RegisterComponent implements OnInit {
+  public registerForm: FormGroup = new FormGroup({});
+  public user: User = new User(); 
 
-export class RegisterComponent implements OnInit{
-  title = 'rejestracja';
-  public registrationForm: FormGroup = new FormGroup({})
-  constructor(private router: Router,private formBuilder: FormBuilder, private userService: UserService) {}
+  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) {}
 
   ngOnInit() {
     this.initForm();
   }
 
-  initForm() {
-    this.registrationForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(5)]],
-      firstName: ['', [Validators.required, Validators.minLength(2), Validators.pattern(/^[A-Z][a-z]*$/)]],
-      lastName: ['', [Validators.required, Validators.minLength(3), Validators.pattern(/^[A-Z][a-z]*$/)]],
-      birthDate: [null, [Validators.required,Validators.min(new Date('1900-01-01').getTime()),Validators.max(new Date(new Date().getFullYear() - 18, new Date().getMonth(), new Date().getDate()).getTime())]], 
-      phone: [null,[ Validators.required,Validators.min(399999999), Validators.max(900000000),]],
-      adress: ['',Validators.required]      
-    });
+  matchPassword(control: any): { [key: string]: boolean } | null {
+    const password = this.registerForm.get('password')?.value;
+    const confirmPassword = control.value;
+    return password === confirmPassword ? null : { 'mismatch': true };
   }
 
-  submitForm() {
-    if (this.registrationForm.valid) {
-      const formData = this.registrationForm.value;
-      this.userService.doesEmailExist(formData.email)
-        .subscribe({
-          next: (result) => {
-            console.log(result)
-            if (!result) {
-              const newClient = new Client(0, formData.firstName, formData.lastName,formData.password, formData.birthDate, formData.email,formData.address, formData.phone, 0);
-              this.userService.addClient(newClient);
+  initForm() {
+    this.registerForm = this.formBuilder.group({
+      email: [
+        this.user.getEmail(),
+        [Validators.required, Validators.email] 
+      ],
+
+      phone:[
+        this.user.getPhone(),
+        [Validators.required,Validators.pattern(/^[0-9]{9}$/)]
+      ],
+      
+      firstName: [
+        this.user.getFirstName(), 
+        [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/), Validators.minLength(2)]
+      ],
+      lastName: [
+        this.user.getLastName(), 
+        [Validators.required,Validators.pattern(/^[a-zA-Z\s]*$/), Validators.minLength(2)]
+      ],
+      password: [
+        '', 
+      [Validators.required, Validators.minLength(4)]
+    ],
+    confirmPassword: [
+      '', 
+      [Validators.required, this.matchPassword.bind(this)]
+    ],
+    });
+  }
+  
+  register() {
+    if (this.registerForm.valid) 
+    {
+      const formData = this.registerForm.value;
+              const newUser = new User();
+              newUser.setFirstName(formData.firstName);
+              newUser.setLastName(formData.lastName);
+              newUser.setEmail(formData.email);
+              newUser.setPassword(formData.password);
+             // newUser.setPhone(formData.phone);
+  
+              this.userService.addUser(newUser);
               this.router.navigate(['']);
-            } else {
-              console.log("Email already exists!");
-            }
-          },
-          error: (err) => {
-            console.log(err);
-          }
-        });
-    } else {
-      console.log("Form is not valid!!!");
+            
+           // else {console.log("Email zajety");}
+  
+      console.log('User Details:', this.user);
+    } 
+    
+    else {
+      console.log('Error');
       this.getFormValidationErrors();
     }
   }
+
   getFormValidationErrors() {
-    Object.keys(this.registrationForm.controls).forEach((key) => {
-      const controlErrors: ValidationErrors = this.registrationForm.get(key)!.errors!;
+    Object.keys(this.registerForm.controls).forEach((key) => {
+      const controlErrors: ValidationErrors = this.registerForm.get(key)!.errors!;
       Object.keys(controlErrors || {}).forEach(keyError => {
         console.log(`Key control: ${key}, keyError: ${keyError}, errValue: ${controlErrors[keyError]}`);
       });

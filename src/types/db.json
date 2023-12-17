@@ -1,8 +1,17 @@
 {
   "cars": [
     { "id": 1, "brand": "Skoda", "model": "Octavia", "regPlate": "BI99999", "productionYear": 2009, "status": 0, "image": "../assets/img/skoda.png" },
-    { "id": 2, "brand": "Suzuki", "model": "Swift", "regPlate": "BIA12345", "productionYear": 2006, "status": 0, "image": "../assets/img/suzuki.png" }
-  ],
+    { "id": 2, "brand": "Suzuki", "model": "Swift", "regPlate": "BIA12345", "productionYear": 2006, "status": 0, "image": "../assets/img/suzuki.png" },
+    { "id": 3, "brand": "Toyota", "model": "Camry", "regPlate": "ABC98765", "productionYear": 2015, "status": 0, "image": "../assets/img/toyota.png" },
+    { "id": 4, "brand": "Honda", "model": "Civic", "regPlate": "XYZ54321", "productionYear": 2018, "status": 0, "image": "../assets/img/honda.png" },
+    { "id": 5, "brand": "Ford", "model": "Focus", "regPlate": "DEF45678", "productionYear": 2012, "status": 0, "image": "../assets/img/ford.png" },
+    { "id": 6, "brand": "Chevrolet", "model": "Malibu", "regPlate": "LMN11111", "productionYear": 2017, "status": 0, "image": "../assets/img/chevrolet.png" },
+    { "id": 7, "brand": "Volkswagen", "model": "Golf", "regPlate": "VW22222", "productionYear": 2014, "status": 0, "image": "../assets/img/vw.png" },
+    { "id": 8, "brand": "Hyundai", "model": "Elantra", "regPlate": "HYU33333", "productionYear": 2016, "status": 0, "image": "../assets/img/hyundai.png" },
+    { "id": 9, "brand": "Mazda", "model": "Mazda3", "regPlate": "MZA44444", "productionYear": 2013, "status": 0, "image": "../assets/img/mazda.png" },
+    { "id": 10, "brand": "Nissan", "model": "Altima", "regPlate": "NSN55555", "productionYear": 2019, "status": 0, "image": "../assets/img/nissan.png" }
+  ]
+,
   "clients": [
     {"id":1,"firstName":"John","lastName":"Doe","password":"12345","birthDate":"1990-01-01","email":"client1@test.pl","address":"123 Main St","phone":123456789,"status":1,"isWorker":false,"licenseNumber":"ABC123","creditCardNumber":"1234-5678-9101-1121"},
     {"id":2,"firstName":"Jane","lastName":"Smith","password":"12345","birthDate":"1985-05-15","email":"client2@test.pl","address":"456 Oak Ave","phone":987654321,"status":1,"isWorker":false,"licenseNumber":"XYZ789","creditCardNumber":"2101-1121-3456-7890"}
