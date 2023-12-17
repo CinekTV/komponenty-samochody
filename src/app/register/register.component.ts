@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, ValidationErrors, ReactiveFormsModu
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { User } from '../../types/user';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',
@@ -15,10 +16,16 @@ export class RegisterComponent implements OnInit {
   public registerForm: FormGroup = new FormGroup({});
   public user: User = new User(); 
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private router: Router, private userService: UserService) {}
 
   ngOnInit() {
     this.initForm();
+  }
+
+  matchPassword(control: any): { [key: string]: boolean } | null {
+    const password = this.registerForm.get('password')?.value;
+    const confirmPassword = control.value;
+    return password === confirmPassword ? null : { 'mismatch': true };
   }
 
   initForm() {
@@ -27,37 +34,51 @@ export class RegisterComponent implements OnInit {
         this.user.getEmail(),
         [Validators.required, Validators.email] 
       ],
-      phoneNumber: [
+
+      phone:[
         this.user.getPhone(),
-        [Validators.required, Validators.pattern(/^[0-9]{9}$/) ]
+        [Validators.required,Validators.pattern(/^[0-9]{9}$/)]
       ],
+      
       firstName: [
         this.user.getFirstName(), 
         [Validators.required, Validators.pattern(/^[a-zA-Z\s]*$/), Validators.minLength(2)]
       ],
       lastName: [
         this.user.getLastName(), 
-        [Validators.required,Validators.pattern(/^[a-zA-Z\s]*$/), Validators.minLength(3)]
+        [Validators.required,Validators.pattern(/^[a-zA-Z\s]*$/), Validators.minLength(2)]
       ],
       password: [
         '', 
-      [Validators.required, Validators.minLength(5)]
+      [Validators.required, Validators.minLength(4)]
+    ],
+    confirmPassword: [
+      '', 
+      [Validators.required, this.matchPassword.bind(this)]
     ],
     });
   }
   
   register() {
-    if (this.registerForm.valid) {
+    if (this.registerForm.valid) 
+    {
       const formData = this.registerForm.value;
+              const newUser = new User();
+              newUser.setFirstName(formData.firstName);
+              newUser.setLastName(formData.lastName);
+              newUser.setEmail(formData.email);
+              newUser.setPassword(formData.password);
+             // newUser.setPhone(formData.phone);
   
-      this.user.setEmail(formData.email);
-      this.user.setPhone(formData.phoneNumber);
-      this.user.setFirstName = formData.firstName;
-      this.user.setLastName = formData.lastName;
-      this.user.setPassword = formData.password;
+              this.userService.addUser(newUser);
+              this.router.navigate(['']);
+            
+           // else {console.log("Email zajety");}
   
       console.log('User Details:', this.user);
-    } else {
+    } 
+    
+    else {
       console.log('Error');
       this.getFormValidationErrors();
     }

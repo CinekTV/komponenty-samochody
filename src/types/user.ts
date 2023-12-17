@@ -6,7 +6,7 @@ export class User{
     private birthDate: Date = new Date();
     private email: string = '';
     private address: string = '';
-    private phone: number = 0;
+    private phone: string = '';
     private status: number = 0;
     private isWorker: boolean = false;
 
@@ -14,7 +14,7 @@ export class User{
       return this.email;
     }
   
-  getPhone(): number {
+  getPhone(): string {
       return this.phone;
     }
   getFirstName(): string {
@@ -36,7 +36,7 @@ export class User{
       this.email = email;
     }
   
-  setPhone(phone: number): void {
+  setPhone(phone: string): void {
       this.phone = phone;
     }
 

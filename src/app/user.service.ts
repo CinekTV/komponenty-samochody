@@ -15,7 +15,7 @@ export class UserService {
     user1.setLastName('Don');
     user1.setEmail('jan.don@gmail.com');
     user1.setPassword('lol123');
-    user1.setPhone(123456789);
+    user1.setPhone('123456789');
 
     const user2 = new User();
     user2.setId(2);
@@ -23,7 +23,7 @@ export class UserService {
     user2.setLastName('Don');
     user2.setEmail('jane.don@gmail.com');
     user1.setPassword('lol12345');
-    user2.setPhone(987654321);
+    user2.setPhone('987654321');
 
     this.users = [user1, user2];
   }
