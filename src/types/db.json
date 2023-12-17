@@ -2,5 +2,14 @@
   "cars": [
     { "id": 1, "brand": "Skoda", "model": "Octavia", "regPlate": "BI99999", "productionYear": 2009, "status": 0, "image": "../assets/img/skoda.png" },
     { "id": 2, "brand": "Suzuki", "model": "Swift", "regPlate": "BIA12345", "productionYear": 2006, "status": 0, "image": "../assets/img/suzuki.png" }
+  ],
+  "clients": [
+    {"id":1,"firstName":"John","lastName":"Doe","password":"12345","birthDate":"1990-01-01","email":"client1@test.pl","address":"123 Main St","phone":123456789,"status":1,"isWorker":false,"licenseNumber":"ABC123","creditCardNumber":"1234-5678-9101-1121"},
+    {"id":2,"firstName":"Jane","lastName":"Smith","password":"12345","birthDate":"1985-05-15","email":"client2@test.pl","address":"456 Oak Ave","phone":987654321,"status":1,"isWorker":false,"licenseNumber":"XYZ789","creditCardNumber":"2101-1121-3456-7890"}
+  ],
+  "workers": [
+    {"id":1,"firstName":"John","lastName":"Doe","password":"12345","birthDate":"1990-01-01","email":"worker1@test.pl","address":"123 Main St","phone":123456789,"status":1},
+    {"id":2,"firstName":"Jane","lastName":"Smith","password":"12345","birthDate":"1985-05-15","email":"worker2@test.pl","address":"456 Oak Ave","phone":987654321,"status":1},
+    {"id":3,"firstName":"Bob","lastName":"Johnson","password":"12345","birthDate":"1980-08-20","email":"worker3@test.pl","address":"789 Elm St","phone":555555555,"status":1}
   ]
 }

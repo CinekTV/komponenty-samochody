@@ -64,9 +64,51 @@ constructor (id: number, firstName: string, lastName: string, password: string, 
 
 }
 
+export class Client extends User {
+    private licenseNumber?: string;
+    private creditCardNumber?: string;
 
+    constructor(
+        id: number,
+        firstName: string,
+        lastName: string,
+        password: string,
+        birthDate: Date,
+        email: string,
+        address: string,
+        phone: number,
+        status: number,
+        licenseNumber?: string,
+        creditCardNumber?: string
+    ) {
+        super(id, firstName, lastName, password, birthDate, email, address, phone, status, false);
+        this.licenseNumber = licenseNumber;
+        this.creditCardNumber = creditCardNumber;
+    }
 
-export class Client extends User{
-    private licenseNumber: string = '';
-    private creditCardNumber: string = '';    
+    public get LicenseNumber(): string | undefined {
+        return this.licenseNumber;
+    }
+
+    public get CreditCardNumber(): string | undefined {
+        return this.creditCardNumber;
+    }
+}
+
+export class Worker extends User {
+
+    constructor(
+        id: number,
+        firstName: string,
+        lastName: string,
+        password: string,
+        birthDate: Date,
+        email: string,
+        address: string,
+        phone: number,
+        status: number,
+    ) {
+        super(id, firstName, lastName, password, birthDate, email, address, phone, status, true);
+    }
+
 }

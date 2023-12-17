@@ -18,22 +18,27 @@ import { CarComponent } from './car/car.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CarServiceService } from './car-service.service';
+import { UserService } from './user.service';
 
 
 
 @NgModule({
   declarations: [
+    AppComponent,
     CarRentalComponent,
     ContactComponent,
-    RegisterComponent,
-    RentalListComponent
+    RentalListComponent,
+    RegisterComponent
   ],
+
   imports: [
+    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [CarServiceService]
+  providers: [CarServiceService, UserService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
 

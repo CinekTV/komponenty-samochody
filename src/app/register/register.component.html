@@ -1,36 +1,88 @@
-<div class="registration-container">
-    <h1>Zarejestruj się</h1>
-    <form>
-      <div class="form-group">
-        <label for="firstName">Imię:</label>
-        <input type="text" id="firstName" name="firstName" formControlName="firstName" required>
+<section class="loginForm">
+  <form (ngSubmit)="submitForm()">
+    <div class="input-group">
+      <label for="email">Email: </label>
+      <input formControlName="email" id="email" type="email" />
+      <div class="err" *ngIf="registrationForm.get('email')?.hasError('required') && registrationForm.get('email')?.touched">
+        Email is required.
       </div>
-   
-      <div class="form-group">
-        <label for="lastName">Nazwisko:</label>
-        <input type="text" id="lastName" name="lastName" formControlName="lastName" required>
+      <div class="err" *ngIf="registrationForm.get('email')?.hasError('email') && registrationForm.get('email')?.touched">
+        Please enter a valid email address.
       </div>
-  
-      <div class="form-group">
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" formControlName="email" required>
+    </div>
+
+    <div class="input-group">
+      <label for="firstName">First Name: </label>
+      <input formControlName="firstName" id="firstName" type="text" />
+      <div class="err" *ngIf="registrationForm.get('firstName')?.hasError('required') && registrationForm.get('firstName')?.touched">
+        First name is required.
       </div>
-  
-      <div class="form-group">
-        <label for="phone">Numer telefonu:</label>
-        <input type="tel" id="phone" name="phone" formControlName="phone" required>
+      <div class="err" *ngIf="registrationForm.get('firstName')?.hasError('minlength') && registrationForm.get('firstName')?.touched">
+        First name should be at least 2 characters long.
       </div>
-  
-      <div class="form-group">
-        <label for="password">Hasło:</label>
-        <input type="password" id="password" name="password" formControlName="password" required>
+      <div class="err" *ngIf="registrationForm.get('firstName')?.hasError('pattern') && registrationForm.get('firstName')?.touched">
+        Name must start with a capital letter, no special chars or numbers.
       </div>
-  
-      <div class="form-group">
-        <label for="confirmPassword">Potwierdź hasło:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" required>
+    </div>
+
+    <div class="input-group">
+      <label for="lastName">Last Name: </label>
+      <input formControlName="lastName" id="lastName" type="text" />
+      <div class="err" *ngIf="registrationForm.get('lastName')?.hasError('required') && registrationForm.get('lastName')?.touched">
+        Last name is required.
       </div>
-  
-      <button type="submit">Zarejestruj się</button>
-    </form>
-  </div>
+      <div class="err" *ngIf="registrationForm.get('lastName')?.hasError('minlength') && registrationForm.get('lastName')?.touched">
+        Last name should be at least 3 characters long.
+      </div>
+      <div class="err" *ngIf="registrationForm.get('lastName')?.hasError('pattern') && registrationForm.get('lastName')?.touched">
+        Name must start with a capital letter, no special chars or numbers.
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="password">Password: </label>
+      <input formControlName="password" id="password" type="password" />
+      <div class="err" *ngIf="registrationForm.get('password')?.hasError('required') && registrationForm.get('password')?.touched">
+        Password is required.
+      </div>
+      <div class="err" *ngIf="registrationForm.get('password')?.hasError('minlength') && registrationForm.get('password')?.touched">
+        Password should be at least 5 characters long.
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="phoneNumber">Phone Number: </label>
+      <input formControlName="phoneNumber" id="phoneNumber" type="text" />
+      <div class="err" *ngIf="registrationForm.get('phoneNumber')?.hasError('required') && registrationForm.get('phoneNumber')?.touched">
+        Phone number is required.
+      </div>
+      <div class="err" *ngIf="registrationForm.get('phoneNumber')?.hasError('pattern') && registrationForm.get('phoneNumber')?.touched">
+        Please enter a valid 9-digit phone number.
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="birthDate">Birth Date: </label>
+      <input formControlName="birthDate" id="birthDate" type="date" />
+      <div class="err" *ngIf="registrationForm.get('birthDate')?.hasError('required') && registrationForm.get('birthDate')?.touched">
+        Birth date is required.
+      </div>
+      <div class="err" *ngIf="registrationForm.get('birthDate')?.hasError('min') && registrationForm.get('birthDate')?.touched">
+        Minimum age must be 18 years.
+      </div>
+      <div class="err" *ngIf="registrationForm.get('birthDate')?.hasError('max') && registrationForm.get('birthDate')?.touched">
+        Birth date exceeds the maximum allowed.
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="address">Address: </label>
+      <input formControlName="address" id="address" type="text" />
+      <div class="err" *ngIf="registrationForm.get('address')?.hasError('required') && registrationForm.get('address')?.touched">
+        Address is required.
+      </div>
+    </div>
+
+    <button type="submit">Register</button>
+  </form>
+</section>
