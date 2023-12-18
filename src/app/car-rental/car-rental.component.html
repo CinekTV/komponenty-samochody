@@ -1,31 +1,34 @@
-<div>
+<div class="rental-container">
     <h2>Zamówienie samochodu</h2>
-    <form>
-      <div class="form-group">
+    <form [formGroup]="rentalForm" (ngSubmit)="rental()">
+      <div class="input-group">
         <label for="pickupDate">Data odbioru:</label>
         <input type="date" id="pickupDate" name="pickupDate" formControlName="pickupDate" required>
       </div>
       
-      <div class="form-group">
+      <div class="input-group">
         <label for="pickupTime">Czas odbioru:</label>
         <input type="time" id="pickupTime" name="pickupTime" formControlName="pickupTime" required>
       </div>
   
-      <div class="form-group">
+      <div class="input-group">
         <label for="fullName">Imię i Nazwisko:</label>
         <input type="text" id="fullName" name="fullName" formControlName="fullName" required>
       </div>
   
-      <div class="form-group">
+      <div class="input-group">
         <label for="pickupLocation">Miejsce odbioru:</label>
         <input type="text" id="pickupLocation" name="pickupLocation" formControlName="pickupLocation" required>
       </div>
   
-      <div class="form-group">
+      <div class="input-group">
         <label for="returnLocation">Miejsce zwrotu:</label>
         <input type="text" id="returnLocation" name="returnLocation" formControlName="returnLocation" required>
       </div>
   
       <button type="submit">Potwierdź i Przejdź do Płatności</button>
     </form>
+    <div *ngIf="rentalError" class="error-message">
+      {{ rentalError }}
+    </div>
   </div>

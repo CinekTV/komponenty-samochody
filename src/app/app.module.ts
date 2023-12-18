@@ -24,11 +24,11 @@ import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    CarRentalComponent,
+ //  AppComponent,
+  //  CarRentalComponent,
     ContactComponent,
     RentalListComponent,
-    RegisterComponent
+  //  RegisterComponent
   ],
 
   imports: [
@@ -38,7 +38,7 @@ import { UserService } from './user.service';
     HttpClientModule,
   ],
   providers: [CarServiceService, UserService],
-  bootstrap: [AppComponent]
+ // bootstrap: [AppComponent]
 })
 export class AppModule { }
 
