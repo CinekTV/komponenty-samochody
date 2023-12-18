@@ -19,6 +19,7 @@
 
 <div class="car-list">
   <div class="top-header">
+    <a routerLink="/add-car" routerLinkActive="active" ariaCurrentWhenActive="page"><button>Dodaj</button></a>
     <h2>Samochody do wynajęcia:</h2>
     <label for="sortDropdown">Sortuj według:</label>
     <select id="sortDropdown" [(ngModel)]="selectedSortOption" (change)="sortBy()">

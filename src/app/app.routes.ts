@@ -10,6 +10,7 @@ import { ContactComponent } from './contact/contact.component';
 import { RentalListComponent } from './rental-list/rental-list.component';
 import { CarServiceService } from './car-service.service';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { AddCarComponent } from './add-car/add-car.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/contact', pathMatch: 'full'},
@@ -22,6 +23,7 @@ export const routes: Routes = [
     {path: 'car-list', component: CarListComponent},
     {path: 'contact', component:ContactComponent},
     {path: 'rental-list', component:RentalListComponent},
+    {path: 'add-car',component:AddCarComponent},
     {path: '**', component: PagenotfoundComponent, pathMatch: 'full'}
 ];
 
