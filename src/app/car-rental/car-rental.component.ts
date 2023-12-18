@@ -27,33 +27,28 @@ export class CarRentalComponent implements OnInit {
   public rentalError: string | null = null;
   rentals: Rental[] = [];
   sortedRentals: Rental[] = [];
-  sortBy: keyof Rental = 'startDate'; // Domyślne sortowanie
+  sortBy: keyof Rental = 'startDate'; 
 
   constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
-    // Tutaj możesz wczytać dane wypożyczeń z serwera lub innego źródła danych
     this.loadRentals();
     this.initForm();
   }
 
   loadRentals() {
-    // Symulacja danych - Możesz zastąpić tym rzeczywistymi danymi
     this.rentals = [
       { userId: 1, carId: 101, startDate: new Date('2023-01-01'), endDate: new Date('2023-01-10'), kmCount: 500 },
       { userId: 2, carId: 102, startDate: new Date('2023-02-01'), endDate: new Date('2023-02-15'), kmCount: 700 },
-      // Dodaj więcej wypożyczeń
     ];
 
-    // Przy każdym załadowaniu danych, sortuj i zaktualizuj widok
     this.sortRentals();
   }
 
   sortRentals() {
-    // Klonujemy tablicę przed sortowaniem, aby nie modyfikować oryginalnej
     this.sortedRentals = [...this.rentals];
 
-    // Sortowanie według wybranej kolumny
+    //sortowanie wedlgu wybranej kolumny
     this.sortedRentals.sort((a, b) => {
       const aValue = a[this.sortBy] as number | string | Date;
       const bValue = b[this.sortBy] as number | string | Date;
@@ -67,14 +62,14 @@ export class CarRentalComponent implements OnInit {
     if (this.rentalForm.valid) {
       const formData = this.rentalForm.value;
         console.log('Dokonano rezerwacji');
-        this.rentalError ="Zarezerwowano pomylsnie";
+        this.rentalError ="Zarezerwowano pomyslnie";
     } else {
       console.log('Błąd');
       this.getFormValidationErrors();
       this.rentalError = 'Formularz zawiera błędy';
     }
   }
-  
+
   initForm(){
     this.rentalForm = this.formBuilder.group({
     });
@@ -89,7 +84,6 @@ export class CarRentalComponent implements OnInit {
   }
 
   setSortBy(column: keyof Rental) {
-    // Ustawia kolumnę do sortowania i ponownie sortuje dane
     this.sortBy = column;
     this.sortRentals();
   }

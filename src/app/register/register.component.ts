@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
               newUser.setLastName(formData.lastName);
               newUser.setEmail(formData.email);
               newUser.setPassword(formData.password);
-             // newUser.setPhone(formData.phone);
+              newUser.setPhone(formData.phone);
   
               this.userService.addUser(newUser);
               this.router.navigate(['']);

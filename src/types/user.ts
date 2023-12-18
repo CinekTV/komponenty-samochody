@@ -10,13 +10,22 @@ export class User{
     private status: number = 0;
     private isWorker: boolean = false;
 
-    getEmail(): string {
+  getEmail(): string {
       return this.email;
+    }
+
+  setEmail(email: string): void {
+      this.email = email;
     }
   
   getPhone(): string {
       return this.phone;
     }
+
+  setPhone(phone: string): void {
+      this.phone = phone;
+    }
+
   getFirstName(): string {
       return this.firstName;
     }
@@ -31,14 +40,6 @@ export class User{
   getId(): number {
       return this.id;
   }
-
-  setEmail(email: string): void {
-      this.email = email;
-    }
-  
-  setPhone(phone: string): void {
-      this.phone = phone;
-    }
 
   setFirstName(firstName: string): void {
       this.firstName = firstName;
