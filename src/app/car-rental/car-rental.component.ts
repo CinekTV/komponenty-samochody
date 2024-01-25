@@ -1,4 +1,3 @@
-// rental.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
@@ -58,6 +57,7 @@ export class CarRentalComponent implements OnInit {
       return 0;
     });
   }
+
   rental(){
     if (this.rentalForm.valid) {
       const formData = this.rentalForm.value;
@@ -74,6 +74,7 @@ export class CarRentalComponent implements OnInit {
     this.rentalForm = this.formBuilder.group({
     });
   }
+
   getFormValidationErrors(){
     Object.keys(this.rentalForm.controls).forEach((key) => {
       const controlErrors: ValidationErrors = this.rentalForm.get(key)!.errors!;

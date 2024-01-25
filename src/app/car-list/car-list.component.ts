@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CarServiceService } from '../car-service.service';
 import { Car } from '../../types/car';
+import { HighlightDirective } from '../wlasnadyrektywa.directive';
 
 @Component({
   selector: 'app-car-list',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet, FormsModule],
+  imports: [CommonModule, RouterLink, RouterLinkActive, RouterOutlet, FormsModule, HighlightDirective],
   providers: [CarServiceService],
   templateUrl: './car-list.component.html',
   styleUrl: './car-list.component.css'
@@ -35,6 +36,7 @@ export class CarListComponent implements OnInit{
     selectedSortOption: string | undefined;
     // currentSortProperty: string | null = null;
     sortBy() {
+      console.log("sort");
       if (this.selectedSortOption) {
         switch (this.selectedSortOption) {
           case 'id':

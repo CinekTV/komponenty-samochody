@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
 import { AppComponent } from './app.component';
 import { AddCarComponent } from './add-car/add-car.component';
 import { CarListComponent } from './car-list/car-list.component';
@@ -19,7 +18,7 @@ import { CarComponent } from './car/car.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarServiceService } from './car-service.service';
 import { UserService } from './user.service';
-
+import { HighlightDirective} from './wlasnadyrektywa.directive';
 
 
 @NgModule({
@@ -28,14 +27,16 @@ import { UserService } from './user.service';
   //  CarRentalComponent,
     ContactComponent,
     RentalListComponent,
-  //  RegisterComponent
+  //  RegisterComponent,
   ],
+
+  
 
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [CarServiceService, UserService],
  // bootstrap: [AppComponent]

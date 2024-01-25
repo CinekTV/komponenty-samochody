@@ -1,7 +1,7 @@
 <div class="car-list">
   <div class="top-header">
     <a routerLink="/add-car" routerLinkActive="active" ariaCurrentWhenActive="page"><button>Dodaj</button></a>
-    <h2>Samochody do wynajęcia:</h2>
+    <h2 appHighlight>Samochody do wynajęcia:</h2>
     <label for="sortDropdown">Sortuj według:</label>
     <select id="sortDropdown" [(ngModel)]="selectedSortOption" (change)="sortBy()">
       <option *ngFor="let option of sortOptions" [value]="option.value">{{ option.label }}</option>
@@ -9,10 +9,10 @@
     <ul>
       <li *ngFor="let car of cars" class="car-item">
         <div class="car-details">
-          <h3>{{ car.brand}} {{car.model}}</h3>
+          <h3>{{ car.brand | titlecase}} {{car.model | titlecase}}</h3>
           <img src={{car.image}} class="car-photo"/>
-          <p>Numer rejestracyjny: {{ car.regPlate }}</p>
-          <p>Rok produkcji: {{ car.productionYear }}</p>
+          <p appHighlight>Numer rejestracyjny: {{ car.regPlate }}</p>
+          <p> Rok produkcji: {{ car.productionYear }}</p>
             <a [routerLink]="'/car-rental/' + car.id" routerLinkActive="active" ariaCurrentWhenActive="page"><button>Wynajmij</button></a>
           <br><br><br>
         </div>
