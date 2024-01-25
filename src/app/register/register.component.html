@@ -1,0 +1,78 @@
+<div class="register-container">
+  <h1>Zarejestruj się</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <div class="input-group">
+      <label for="firstName">Imię:</label>
+      <input type="text" id="firstName" name="firstName" formControlName="firstName" required>
+      <div *ngIf="registerForm.get('firstName')?.hasError('required') && registerForm.get('firstName')?.touched" class="error-message">
+        Imię jest wymagane
+      </div>
+      <div *ngIf="registerForm.get('firstName')?.hasError('pattern') && registerForm.get('firstName')?.touched" class="error-message">
+        Imię powinno składać się tylko z liter i spacji
+      </div>
+      <div *ngIf="registerForm.get('firstName')?.hasError('minlength') && registerForm.get('firstName')?.touched" class="error-message">
+        Imię musi mieć co najmniej 4 znaki
+      </div>
+    </div>
+ 
+    <div class="input-group">
+      <label for="lastName">Nazwisko:</label>
+      <input type="text" id="lastName" name="lastName" formControlName="lastName" required>
+      <div *ngIf="registerForm.get('lastName')?.hasError('required') && registerForm.get('lastName')?.touched" class="error-message">
+        Nazwisko jest wymagane
+      </div>
+      <div *ngIf="registerForm.get('lastName')?.hasError('pattern') && registerForm.get('lastName')?.touched" class="error-message">
+        Nazwisko powinno składać się tylko z liter i spacji
+      </div>
+      <div *ngIf="registerForm.get('lastName')?.hasError('minlength') && registerForm.get('lastName')?.touched" class="error-message">
+        Nazwisko musi mieć co najmniej 3 znaki
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" formControlName="email" required>
+      <div *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched" class="error-message">
+        E-mail jest wymagany
+      </div>
+      <div *ngIf="registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched" class="error-message">
+        Nieprawidłowy format adresu e-mail
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="phone">Telefon:</label>
+      <input type="text" id="phone" name="phone" formControlName="phone" required>
+      <div *ngIf="registerForm.get('phone')?.hasError('required') && registerForm.get('phone')?.touched" class="error-message">
+        Numer telefonu jest wymagany
+      </div>
+      <div *ngIf="registerForm.get('phone')?.hasError('pattern') && registerForm.get('phone')?.touched" class="error-message">
+        Numer telefonu powinien składać się z 9 cyfr
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="password">Hasło:</label>
+      <input type="password" id="password" name="password" formControlName="password" required>
+      <div *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched" class="error-message">
+        Hasło jest wymagane
+      </div>
+      <div *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched" class="error-message">
+        Hasło musi mieć co najmniej 4 znaki
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="confirmPassword">Potwierdź hasło:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" required>
+      <div *ngIf="registerForm.get('confirmPassword')?.hasError('required') && registerForm.get('confirmPassword')?.touched" class="error-message">
+        Potwierdzenie hasła jest wymagane
+      </div>
+      <div *ngIf="registerForm.get('confirmPassword')?.hasError('mismatch') && registerForm.get('confirmPassword')?.touched" class="error-message">
+        Potwierdzenie hasła nie pasuje do hasła
+      </div>
+    </div>
+
+    <button type="submit">Zarejestruj się</button>
+  </form>
+</div>

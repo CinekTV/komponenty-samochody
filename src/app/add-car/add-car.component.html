@@ -1,0 +1,21 @@
+<div class="add-car-container">
+  <h1>Dodaj samochód</h1>
+  <form class="form" [formGroup]="addCarForm" (ngSubmit)="onSubmit()">
+    <label for="brand">Marka:</label>
+    <input type="text" id="brand" name="brand" formControlName="brand">
+ 
+    <label for="model">Model:</label>
+    <input type="text" id="model" name="model" formControlName="model">
+
+    <label for="regPlate">Numer rejestracyjny:</label>
+    <input type="text" id="regPlate" name="regPlate" formControlName="regPlate">
+
+    <label for="productionYear">Rok produkcji:</label>
+    <input type="number" id="productionYear" name="productionYear" formControlName="productionYear">
+
+    <label for="image">Nazwa pliku ze zdjęciem:</label>
+    <input type="text" id="image" name="image" formControlName="image">
+
+    <button type="submit">Dodaj samochód</button> <br/>
+  </form>
+</div>

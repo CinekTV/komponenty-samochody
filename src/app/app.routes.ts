@@ -1,3 +1,29 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { LoginComponent } from './login/login.componenet'; 
+import { AppComponent } from './app.component';
+import { CarComponent } from './car/car.component'; 
+import { CarRentalComponent } from './car-rental/car-rental.component';
+import { CarListComponent } from './car-list/car-list.component';
+import {RegisterComponent} from './register/register.component';
+import { ContactComponent } from './contact/contact.component';
+import { RentalListComponent } from './rental-list/rental-list.component';
+import { CarServiceService } from './car-service.service';
+import { AddCarComponent } from './add-car/add-car.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    {path: '', redirectTo: '/contact', pathMatch: 'full'},
+    {path:'app',component:AppComponent},
+    {path:'login',component:LoginComponent},
+    {path: 'register', component: RegisterComponent},
+    {path: 'car', component: CarComponent},
+    {path: 'car-rental', component: CarRentalComponent},
+    {path: 'car-rental/:id', component: CarRentalComponent},
+    {path: 'car-list', component: CarListComponent},
+    {path: 'contact', component:ContactComponent},
+    {path: 'rental-list', component:RentalListComponent},
+    {path: 'add-car',component:AddCarComponent},
+    {path: '**', component:PagenotfoundComponent}
+];
+
+
